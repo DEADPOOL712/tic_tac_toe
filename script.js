@@ -1,5 +1,6 @@
 const block = document.querySelectorAll(".grid-item");
 const winTitle = document.querySelector(".win-lable");
+const container = document.querySelector(".grid-container");
 let count = 0;
 let player;
 
@@ -8,8 +9,10 @@ for (let i = 0; i < block.length; i++) {
     winTitle.classList.add("hidden");
     if (count % 2 == 0) {
       player = "X";
+      block[i].style.color = "red";
     } else {
       player = "O";
+      block[i].style.color = "blue";
     }
     block[i].innerHTML = player;
     count++;
