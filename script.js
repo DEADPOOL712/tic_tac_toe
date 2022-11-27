@@ -1,23 +1,37 @@
 const block = document.querySelectorAll(".grid-item");
-const winTitle = document.querySelector(".win-lable");
 const container = document.querySelector(".grid-container");
+const overlay = document.querySelector(".overlay");
+const close = document.querySelector(".close-modal");
+const modal = document.querySelector(".modal");
+const winLable = document.querySelector(".modal-win-label");
+
 let count = 0;
 let player;
 
+close.addEventListener("click", function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+  for (let i = 0; i < block.length; i++) {
+    block[i].innerHTML = "";
+  }
+});
+
 for (let i = 0; i < block.length; i++) {
   block[i].addEventListener("click", function () {
-    winTitle.classList.add("hidden");
-    if (count % 2 == 0) {
-      player = "X";
-      block[i].style.color = "red";
-    } else {
-      player = "O";
-      block[i].style.color = "blue";
+    if (block[i].innerHTML == "") {
+      if (count % 2 == 0) {
+        player = "X";
+        block[i].style.color = "red";
+      } else {
+        player = "O";
+        block[i].style.color = "blue";
+      }
+
+      block[i].innerHTML = player;
+      count++;
+      draw();
+      win(player);
     }
-    block[i].innerHTML = player;
-    count++;
-    draw();
-    win(player);
   });
 }
 function draw() {
@@ -28,12 +42,9 @@ function draw() {
       remain--;
     }
     if (remain == 0) {
-      console.log("draww");
-      winTitle.classList.remove("hidden");
-      winTitle.innerHTML = "Draw ! 🙌🏻";
-      for (let i = 0; i < block.length; i++) {
-        block[i].innerHTML = "";
-      }
+      overlay.classList.remove("hidden");
+      modal.classList.remove("hidden");
+      winLable.innerHTML = " Draw 🙌🏻 ";
     }
   }
 }
@@ -65,11 +76,8 @@ function win(player) {
       block[7].innerHTML == player &&
       block[8].innerHTML == player)
   ) {
-    winTitle.classList.remove("hidden");
-    winTitle.innerHTML = "The player " + player + " Won ! 🏆";
-    console.log(player + " win ");
-    for (let i = 0; i < block.length; i++) {
-      block[i].innerHTML = "";
-    }
+    overlay.classList.remove("hidden");
+    modal.classList.remove("hidden");
+    winLable.innerHTML = `The player ${player} Won 😍`;
   }
 }
