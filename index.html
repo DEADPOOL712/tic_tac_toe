@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tic tac toe</title>
+    <style>
+      .main {
+        padding: 7% 7%;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        width: 400px;
+        /* height: 400px; */
+        margin: auto;
+      }
+      .grid-item {
+        /* background-color: rgba(255, 255, 255, 0.8); */
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        /* padding: 20px; */
+        font-size: 80px;
+        text-align: center;
+        /* width: 2rem; */
+        min-height: 6rem;
+        min-width: 6rem;
+      }
+      .heading {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        padding-bottom: 1rem;
+      }
+      .hidden {
+        display: none;
+      }
+      .win-lable {
+        color: green;
+        text-align: center;
+      }
+      @media (max-width: 728px) {
+        .grid-container {
+          width: auto;
+        }
+        .main {
+          padding-top: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="main">
+      <div class="heading">Tic tac toe</div>
+      <div class="grid-container">
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+      </div>
+      <h1 class="hidden win-lable"></h1>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
