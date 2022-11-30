@@ -21,10 +21,10 @@ const mainGame = function (i) {
   if (block[i].innerHTML == "") {
     if (count % 2 == 0) {
       player = "X";
-      block[i].style.color = "red";
+      block[i].style.color = "#b67cff";
     } else {
       player = "O";
-      block[i].style.color = "blue";
+      block[i].style.color = "#98ffd9";
     }
 
     block[i].innerHTML = player;
@@ -69,16 +69,15 @@ const checkWin = function (player) {
 
 const checkDraw = function () {
   let remain = 9;
-  for (let i = 0; i < block.length; i++) {
-    if (!(block[i].innerHTML == "")) {
-      //   console.log(remain);
+  block.forEach(function (ele, index) {
+    if (!(ele.innerHTML == "")) {
       remain--;
     }
     if (remain == 0) {
       showPopup();
       winLable.innerHTML = " Draw 🙌🏻 ";
     }
-  }
+  });
 };
 
 const hidePopup = function () {
@@ -93,12 +92,8 @@ const showPopup = function () {
 
 const score = function (player) {
   let score;
-  let playerScore;
-  if (player == "X") {
-    playerScore = xScore;
-  } else {
-    playerScore = oScore;
-  }
+  const playerScore = player === "X" ? xScore : oScore;
+  // change html
   score = Number(playerScore.innerHTML);
   score += 1;
   playerScore.innerHTML = score;
@@ -108,17 +103,17 @@ const score = function (player) {
 //***************
 
 // game board event listen
-for (let i = 0; i < block.length; i++) {
-  block[i].addEventListener("click", function () {
-    mainGame(i);
+block.forEach(function (ele, index) {
+  ele.addEventListener("click", function () {
+    mainGame(index);
   });
-}
+});
 
 // pop up event listen
 close.addEventListener("click", function () {
   hidePopup();
-  for (let i = 0; i < block.length; i++) {
-    block[i].innerHTML = "";
-  }
+  block.forEach(function (element) {
+    element.innerHTML = "";
+  });
   count = 0;
 });
