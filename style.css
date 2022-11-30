@@ -88,3 +88,10 @@ button {
     height: 20%;
   }
 }
+
+/*******************/
+/**** ScoreBoard *****/
+/*******************/
+.score-board {
+  text-align: center;
+}
