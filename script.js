@@ -8,8 +8,8 @@ const overlay = document.querySelector(".overlay");
 const close = document.querySelector(".close-modal");
 const modal = document.querySelector(".modal");
 const winLable = document.querySelector(".modal-label-h1");
-const xScore = document.querySelector(".x-score");
-const oScore = document.querySelector(".o-score");
+// const xScore = document.querySelector(".x-score");
+// const oScore = document.querySelector(".o-score");
 let count = 0;
 let player;
 
@@ -62,7 +62,7 @@ const checkWin = function (player) {
       block[8].innerHTML == player)
   ) {
     showPopup();
-    score(player);
+    // score(player);
     winLable.innerHTML = `The player "${player}" Won 😍`;
   }
 };
@@ -90,14 +90,14 @@ const showPopup = function () {
   modal.classList.remove("hidden");
 };
 
-const score = function (player) {
-  let score;
-  const playerScore = player === "X" ? xScore : oScore;
-  // change html
-  score = Number(playerScore.innerHTML);
-  score += 1;
-  playerScore.innerHTML = score;
-};
+// const score = function (player) {
+//   let score;
+//   const playerScore = player === "X" ? xScore : oScore;
+//   // change html
+//   score = Number(playerScore.innerHTML);
+//   score += 1;
+//   playerScore.innerHTML = score;
+// };
 //***************
 // Event listener
 //***************
