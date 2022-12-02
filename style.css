@@ -1,6 +1,9 @@
 body {
+  /* background-color: #000000; */
   background-color: #000000;
+  font-family: "Lato", sans-serif;
   color: white;
+  height: 100vh;
 }
 
 /*******************/
@@ -18,12 +21,18 @@ body {
 }
 .game-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   padding-bottom: 1.2rem;
-  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
-    0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-  color: #fff6a9;
+  /* text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500,
+    0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000; */
+  color: #ffffff;
+  background: -webkit-linear-gradient(#98ffd9, #b67cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-name: titleanimation;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 .grid-item {
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -32,6 +41,8 @@ body {
   text-align: center;
   min-height: 6rem;
   min-width: 6rem;
+  cursor: pointer;
+  font-weight: 300;
 }
 .hidden {
   display: none;
@@ -49,9 +60,11 @@ body {
   transform: translate(-50%, -50%);
   width: 350px;
   height: 70px;
-  background-color: rgb(255, 255, 255);
+  color: white;
+  background: #ffffff2e;
+  /* background-color: rgb(255, 255, 255); */
   padding: 0 5% 5% 5%;
-  color: black;
+  /* color: black; */
   border-radius: 20px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.8);
   z-index: 10;
@@ -70,7 +83,8 @@ button {
   width: 120px;
   height: 40px;
   border-radius: 100px;
-  background-color: rgb(120, 252, 120);
+  /* background-color: rgb(120, 252, 120); */
+  /* background-color: rgb(120 252 120 / 33%); */
 }
 
 /*********************/
@@ -94,4 +108,18 @@ button {
 /*******************/
 .score-board {
   text-align: center;
+}
+
+@keyframes titleanimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }

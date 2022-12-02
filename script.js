@@ -20,10 +20,10 @@ let player;
 const mainGame = function (i) {
   if (block[i].innerHTML == "") {
     if (count % 2 == 0) {
-      player = "X";
+      player = "O";
       block[i].style.color = "#b67cff";
     } else {
-      player = "O";
+      player = "X";
       block[i].style.color = "#98ffd9";
     }
 
